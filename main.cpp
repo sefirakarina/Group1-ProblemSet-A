@@ -1,9 +1,7 @@
-#include <iostream>
-#include<string>
 #include "SodaCan.hpp"
-using namespace std ;
-
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#include <iostream>
+#include <string>
+using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -11,12 +9,13 @@ string brand;
 int size ;
 int contents ;
 int choice ;
+string brand1,brand2 ;
 SodaCan can ;
 
 int main() 
 {
-	cout<<"\t welcome to the vending machine!"<<endl<<endl;
-	cout<<"please input your order"<<endl<<"and pls don't put any spaces in brand name!";
+	cout<<"\t welcome to the vending machine!!!!!!!"<<endl<<endl;
+	cout<<"please input your order"<<endl<<"and pls don't put any spaces in brand name!"<<endl<<endl;
 	
 	cout << "CHOOSE" << endl;
 			cout << "1. Buy a drink" << endl;
@@ -25,6 +24,8 @@ int main()
 			cout << "4. Exit" << endl;
 			cout << "input your choice : ";
 			cin >> choice;
+			
+			cout<<endl;
 			
 	if(choice == 1)
 	{
@@ -49,7 +50,7 @@ int main()
 		cout<<endl;
 			
 		cout << "Your order is";
-		cout << can.getContents() << " mL of " << can.getBrand();
+		cout << can.getContents() << " ml of " << can.getBrand();
 		
 		if(size == 1) 
 		{
@@ -70,7 +71,87 @@ int main()
 		}
 		
 	}
-	
-	
+///////////////////////////////////////////////////////////////////
+
+	else if (choice==2)
+	{
+		cout<<"input soda 1 : ";
+		cin>>brand1 ;
+		
+		cout<<"input soda 2 : ";
+		cin>>brand2 ;
+		cout<<endl;
+		
+		while(brand1 != brand2)
+		{
+			cout<<"please input the same type of soda :)"<<endl<<endl;
+			
+			cout<<"input soda 1 : ";
+			cin>>brand1 ;
+		
+			cout<<"input soda 2 : ";
+			cin>>brand2 ;
+			cout<<endl;
+		}
+		
+		if(brand1==brand2)
+		{
+			int amount1,amount2;
+			
+			cout<<"input the amount of soda 1 : ";
+			cin>>amount1;
+			
+			cout<<"input the amount of soda 2 : ";
+			cin>>amount2;
+			cout<<endl;
+			
+			can.combineSoda(amount1,amount2,brand1,brand2);
+		}
+	}	
+/////////////////////////////////////////////////////////////////////////////
+
+	else if (choice==3)
+	{
+		cout<<"input soda 1 : ";
+		cin>>brand1 ;
+		
+		cout<<"input soda 2 : ";
+		cin>>brand2 ;
+		cout<<endl;
+		
+		while(brand1 != brand2)
+		{
+			cout<<"please input the same type of soda :)"<<endl<<endl;
+			
+			cout<<"input soda 1 : ";
+			cin>>brand1 ;
+		
+			cout<<"input soda 2 : ";
+			cin>>brand2 ;
+			cout<<endl;
+		}
+		
+		if(brand1==brand2)
+		{
+			int amount1,amount2;
+			
+			cout<<"input the amount of soda 1 : ";
+			cin>>amount1;
+			
+			cout<<"input the amount of soda 2 : ";
+			cin>>amount2;
+			cout<<endl;
+			
+			cout<<"now you have " << can.subtractSoda(amount1,amount2)<<" ml of "<< brand1 ;
+		}
+		
+	}
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+	else if(choice==4)
+	cout<<"okay,bye!!!";
+
+
 	return 0;
 }
